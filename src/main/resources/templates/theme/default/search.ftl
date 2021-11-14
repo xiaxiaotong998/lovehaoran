@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">搜索结果</div>
+                <div class="card-header">Result</div>
                 <@tag_search pageNo=pageNo keyword=keyword>
                     <table class="table">
                         <#list page.records as map>

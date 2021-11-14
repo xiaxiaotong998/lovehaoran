@@ -3,19 +3,19 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">发布话题</div>
+                <div class="card-header">Add a question</div>
                 <div class="card-body">
                     <form action="" onsubmit="return false;" id="form" method="post">
                         <div class="form-group">
-                            <label for="title">标题</label>
-                            <input type="text" name="title" id="title" class="form-control" placeholder="标题"/>
+                            <label for="title">Question</label>
+                            <input type="text" name="title" id="title" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="content">内容</label>
+                            <label for="content">Content</label>
                             <#if site?? && site.content_style?? && site.content_style == "MD">
                                 <span class="pull-right">
-                                    <a href="javascript:uploadFile('topic')">上传图片</a>&nbsp;
-                                    <a href="javascript:uploadFile('video')">上传视频</a>
+                                    <a href="javascript:uploadFile('topic')">Upload picture</a>&nbsp;
+                                    <a href="javascript:uploadFile('video')">Upload video</a>
                                 </span>
                             </#if>
                             <#include "../components/editor.ftl"/>
@@ -28,16 +28,13 @@
                         </div>-->
                         <input type="hidden" name="tag" id="tag" value="${tag!}"/>
                         <div class="form-group">
-                            <button type="button" id="btn" class="btn btn-info">发布话题</button>
+                            <button type="button" id="btn" class="btn btn-info">Add Question</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-md-3 hidden-xs">
-            <#if site?? && site.content_style?? && site.content_style == "MD">
-                <#include "../components/markdown_guide.ftl"/>
-            </#if>
             <#include "../components/create_topic_guide.ftl"/>
         </div>
     </div>
@@ -65,7 +62,7 @@
                     // tags: tags,
                 }, "${_user.token!}", function (data) {
                     if (data.code === 200) {
-                        suc("创建成功");
+                        suc("SUCCESS");
                         setTimeout(function () {
                             window.location.href = "/topic/" + data.detail.id
                         }, 700);

@@ -13,17 +13,17 @@
                       <span>•</span>
                     </#if>-->
                     <#if topic.top == true>
-                        <span class="badge badge-info">置顶</span>
+                        <span class="badge badge-info">Top</span>
                         <span>•</span>
                     <#elseif topic.good == true>
-                        <span class="badge badge-info">精华</span>
+                        <span class="badge badge-info">Prime</span>
                         <span>•</span>
                     </#if>
                     <span><a href="/user/${topic.username!}">${topic.username!}</a></span>
                     <span class="hidden-sm hidden-xs">•</span>
-                    <span class="hidden-sm hidden-xs"><a href="/topic/${topic.id}">${topic.commentCount!0}个评论</a></span>
+                    <span class="hidden-sm hidden-xs"><a href="/topic/${topic.id}">${topic.commentCount!0} comments</a></span>
                     <span class="hidden-sm hidden-xs">•</span>
-                    <span class="hidden-sm hidden-xs">${topic.view!0}次浏览</span>
+                    <span class="hidden-sm hidden-xs">${topic.view!0} readings</span>
                     <span>•</span>
                     <span>${model.formatDate(topic.inTime)}</span>
                     <#if tags && topic.tags??>

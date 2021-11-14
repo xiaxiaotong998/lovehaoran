@@ -7,8 +7,8 @@
                     <a href="/">主页</a> / <a href="/topic/${topic.id}">${topic.title}</a> / 编辑评论
                     <#if site?? && site.content_style?? && site.content_style == "MD">
                         <span class="pull-right">
-                            <a href="javascript:uploadFile('topic');">上传图片</a>&nbsp;|
-                            <a href="javascript:uploadFile('video');">上传视频</a>
+                            <a href="javascript:uploadFile('topic');">Upload picture</a>&nbsp;|
+                            <a href="javascript:uploadFile('video');">Upload video</a>
                         </span>
                     </#if>
                 </div>
@@ -16,15 +16,12 @@
                 <@editor _type="topic" _content="${comment.content!}" style="${comment.style!'MD'}"/>
                 <div class="card-body">
                     <button type="button" id="btn" class="btn btn-info">
-                        <span class="glyphicon glyphicon-send"></span> 更新
+                        <span class="glyphicon glyphicon-send"></span> Update
                     </button>
                 </div>
             </div>
         </div>
         <div class="col-md-3 d-none d-md-block">
-            <#if site?? && site.content_style?? && site.content_style == "MD">
-                <#include "../components/markdown_guide.ftl"/>
-            </#if>
             <#include "../components/create_topic_guide.ftl"/>
         </div>
     </div>

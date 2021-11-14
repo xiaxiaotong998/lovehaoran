@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        作者
+        Author
     </div>
     <div class="card-body">
         <div class="media">
@@ -11,11 +11,11 @@
                 <div class="media-heading">
                     <a href="/user/${topicUser.username!}">${topicUser.username}</a>
                 </div>
-                <p>积分：${topicUser.score}</p>
+                <p>Score：${topicUser.score}</p>
             </div>
         </div>
         <div style="color: #7A7A7A; font-size: 12px;margin-top:5px;">
-            <i>${(topicUser.bio!"这家伙很懒，什么都没有留下")?html}</i>
+            <i>${(topicUser.bio!"This guy is lazy, he left nothing")?html}</i>
         </div>
     </div>
 </div>

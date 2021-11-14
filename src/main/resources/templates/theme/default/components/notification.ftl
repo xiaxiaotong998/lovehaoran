@@ -8,11 +8,11 @@
                         <a href="/user/${notification.username}">${notification.username}</a>
                         <span>${model.formatDate(notification.inTime)}</span>
                         <#if notification.action == "COMMENT">
-                            评论了你的话题 <a href="/topic/${notification.topicId}">${notification.title}</a>
+                            comment on your question <a href="/topic/${notification.topicId}">${notification.title}</a>
                         <#elseif notification.action == "REPLY">
-                            在话题 <a href="/topic/${notification.topicId}">${notification.title}</a> 下回复了你
+                            reply you udeer <a href="/topic/${notification.topicId}">${notification.title}</a>
                         <#elseif notification.action == "COLLECT">
-                            收藏了你的话题 <a href="/topic/${notification.topicId}">${notification.title}</a>
+                            collect <a href="/topic/${notification.topicId}">${notification.title}</a>
                         </#if>
                     </div>
                     <#if notification.content??>

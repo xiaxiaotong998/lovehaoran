@@ -79,7 +79,7 @@ public class TopicApiController extends BaseApiController {
     @PostMapping
     public Result create(@RequestBody Map<String, String> body) {
         User user = getApiUser();
-        ApiAssert.isTrue(user.getActive(), "你的帐号还没有激活，请去个人设置页面激活帐号");
+//        ApiAssert.isTrue(user.getActive(), "你的帐号还没有激活，请去个人设置页面激活帐号");
         String title = body.get("title");
         String content = body.get("content");
         String tag = body.get("tag");

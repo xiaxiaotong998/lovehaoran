@@ -4,19 +4,19 @@
         <div class="col-md-3 d-none d-md-block"></div>
         <div class="col-md-6">
             <div class="card" id="local_login_div">
-                <div class="card-header">登录</div>
+                <div class="card-header">LOGIN</div>
                 <div class="card-body">
                     <form action="" onsubmit="return;">
                         <div class="form-group">
-                            <label for="username">用户名</label>
+                            <label for="username">USERNAME</label>
                             <input type="text" id="username" name="username" class="form-control" placeholder="用户名"/>
                         </div>
                         <div class="form-group">
-                            <label for="password">密码</label>
+                            <label for="password">PASSWORD</label>
                             <input type="password" id="password" name="password" class="form-control" placeholder="密码"/>
                         </div>
                         <div class="form-group">
-                            <label for="captcha">验证码</label>
+                            <label for="captcha">CAPTCHA</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="captcha" name="captcha" placeholder="验证码"/>
                                 <span class="input-group-append">
@@ -96,7 +96,7 @@
                     captcha: captcha,
                 }, function (data) {
                     if (data.code === 200) {
-                        suc("登录成功");
+                        suc("SUCCESS");
                         setTimeout(function () {
                             window.location.href = "/";
                         }, 700);

@@ -47,19 +47,19 @@ public class BaseModel {
 
         long offset = System.currentTimeMillis() - date.getTime();
         if (offset > YEAR) {
-            return (offset / YEAR) + "年前";
+            return (offset / YEAR) + "years ago";
         } else if (offset > MONTH) {
-            return (offset / MONTH) + "个月前";
+            return (offset / MONTH) + "months ago";
         } else if (offset > WEEK) {
-            return (offset / WEEK) + "周前";
+            return (offset / WEEK) + "weeks ago";
         } else if (offset > DAY) {
-            return (offset / DAY) + "天前";
+            return (offset / DAY) + "days ago";
         } else if (offset > HOUR) {
-            return (offset / HOUR) + "小时前";
+            return (offset / HOUR) + "hours ago";
         } else if (offset > MINUTE) {
-            return (offset / MINUTE) + "分钟前";
+            return (offset / MINUTE) + "minutes ago";
         } else {
-            return "刚刚";
+            return "right now";
         }
     }
 

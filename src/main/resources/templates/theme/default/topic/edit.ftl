@@ -3,20 +3,19 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">编辑话题</div>
+                <div class="card-header">Edit a question</div>
                 <div class="card-body">
                     <form action="" onsubmit="return;" id="form">
                         <div class="form-group">
-                            <label for="title">标题</label>
-                            <input type="text" name="title" id="title" value="${topic.title}" class="form-control"
-                                   placeholder="标题"/>
+                            <label for="title">Question</label>
+                            <input type="text" name="title" id="title" value="${topic.title}" class="form-control"/>
                         </div>
                         <div class="form-group">
-                            <label for="content">内容</label>
+                            <label for="content">Content</label>
                             <#if site?? && site.content_style?? && site.content_style == "MD">
                                 <span class="pull-right">
-                                    <a href="javascript:uploadFile('topic')">上传图片</a>&nbsp;
-                                    <a href="javascript:uploadFile('video')">上传视频</a>
+                                    <a href="javascript:uploadFile('topic')">Upload picture</a>&nbsp;
+                                    <a href="javascript:uploadFile('video')">Upload video</a>
                                 </span>
                             </#if>
                             <#include "../components/editor.ftl"/>
@@ -27,7 +26,7 @@
                           <input type="text" name="tags" id="tags" value="${tags}" class="form-control" placeholder="标签, 多个标签以 英文逗号 隔开"/>
                         </div>-->
                         <div class="form-group">
-                            <button type="button" id="btn" class="btn btn-info">更新话题</button>
+                            <button type="button" id="btn" class="btn btn-info">Update question</button>
                         </div>
                     </form>
                 </div>
@@ -58,7 +57,7 @@
                     content: content
                 }, "${_user.token!}", function (data) {
                     if (data.code === 200) {
-                        suc("更新成功");
+                        suc("SUCCESS");
                         setTimeout(function () {
                             window.location.href = "/topic/" + data.detail.id
                         }, 700);

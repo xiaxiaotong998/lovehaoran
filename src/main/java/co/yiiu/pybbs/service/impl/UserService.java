@@ -57,6 +57,8 @@ public class UserService implements IUserService {
         return userMapper.selectOne(wrapper);
     }
 
+
+
     // 递归生成token，防止token重复
     // 理论上uuid生成的token是不可能重复的
     // 加个逻辑放心 : )
@@ -78,14 +80,10 @@ public class UserService implements IUserService {
      * @param email
      * @param bio
      * @param website
-     * @param needActiveEmail 是否需要发送激活邮件
-     *                        新注册的用户都需要
-     *                        Github注册的用户，如果能获取到邮箱，就自动激活，如果获取不到邮箱，则是未激活状态，需要用户绑定邮箱然后发送激活邮件进行激活
      * @return
      */
     @Override
-    public User addUser(String username, String password, String avatar, String email, String bio, String website,
-                        boolean needActiveEmail) {
+    public User addUser(String username, String password, String avatar, String email, String bio, String website) {
         String token = this.generateToken();
         User user = new User();
         user.setUsername(username);
@@ -97,19 +95,7 @@ public class UserService implements IUserService {
         user.setEmail(email);
         user.setBio(bio);
         user.setWebsite(website);
-        user.setActive(systemConfigService.selectAllConfig().get("user_need_active").equals("0"));
         userMapper.insert(user);
-        if (needActiveEmail) {
-            // 发送激活邮件
-            new Thread(() -> {
-                String title = "感谢注册%s，点击下面链接激活帐号";
-                String content = "如果不是你注册了%s，请忽略此邮件&nbsp;&nbsp;<a href='%s/active?email=%s&code=${code}'>点击激活</a>";
-                codeService.sendEmail(user.getId(), email, String.format(title, systemConfigService.selectAllConfig().get(
-                        "base_url").toString()), String.format(content,
-                        systemConfigService.selectAllConfig().get("name").toString(), systemConfigService.selectAllConfig().get(
-                                "base_url").toString(), email));
-            }).start();
-        }
         // 再查一下，有些数据库里默认值保存后，类里还是null
         return this.selectById(user.getId());
     }
@@ -139,7 +125,6 @@ public class UserService implements IUserService {
             user.setEmail(null);
             user.setBio(null);
             user.setWebsite(null);
-            user.setActive(true);
             userMapper.insert(user);
             // 再查一下，有些数据库里默认值保存后，类里还是null
             return this.selectById(user.getId());

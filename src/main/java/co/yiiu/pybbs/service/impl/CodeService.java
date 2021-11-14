@@ -85,29 +85,29 @@ public class CodeService implements ICodeService {
         return code;
     }
 
-    // 验证邮箱验证码
-    @Override
-    public Code validateCode(Integer userId, String email, String mobile, String _code) {
-        QueryWrapper<Code> wrapper = new QueryWrapper<>();
-        LambdaQueryWrapper<Code> lambda = wrapper.lambda();
-        if (email != null) {
-            lambda.eq(Code::getEmail, email);
-            lambda.eq(Code::getUserId, userId);
-        } else if (mobile != null) {
-            lambda.eq(Code::getMobile, mobile);
-        }
-        lambda.eq(Code::getCode, _code);
-        lambda.eq(Code::getUsed, false);
-        lambda.gt(Code::getExpireTime, new Date());
-        return codeMapper.selectOne(wrapper);
-    }
+//    // 验证邮箱验证码
+//    @Override
+//    public Code validateCode(Integer userId, String email, String mobile, String _code) {
+//        QueryWrapper<Code> wrapper = new QueryWrapper<>();
+//        LambdaQueryWrapper<Code> lambda = wrapper.lambda();
+//        if (email != null) {
+//            lambda.eq(Code::getEmail, email);
+//            lambda.eq(Code::getUserId, userId);
+//        } else if (mobile != null) {
+//            lambda.eq(Code::getMobile, mobile);
+//        }
+//        lambda.eq(Code::getCode, _code);
+//        lambda.eq(Code::getUsed, false);
+//        lambda.gt(Code::getExpireTime, new Date());
+//        return codeMapper.selectOne(wrapper);
+//    }
 
-    // 发送邮件
-    @Override
-    public boolean sendEmail(Integer userId, String email, String title, String content) {
-        Code code = this.createCode(userId, email, null);
-        return emailService.sendEmail(email, title, content.replace("${code}", code.getCode()));
-    }
+//    // 发送邮件
+//    @Override
+//    public boolean sendEmail(Integer userId, String email, String title, String content) {
+//        Code code = this.createCode(userId, email, null);
+//        return emailService.sendEmail(email, title, content.replace("${code}", code.getCode()));
+//    }
 
     // 发送短信
     @Override

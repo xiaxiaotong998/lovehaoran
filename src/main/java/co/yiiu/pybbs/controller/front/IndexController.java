@@ -127,25 +127,25 @@ public class IndexController extends BaseController {
     }
 
     // 激活帐号
-    @GetMapping("/active")
-    public String active(String email, String code) {
-        Assert.notNull(email, "激活邮箱不能为空");
-        Assert.notNull(code, "激活码不能为空");
-        User user = getUser();
-        if (user == null) {
-            user = userService.selectByEmail(email);
-        } else {
-            Assert.isTrue(email.equals(user.getEmail()), "激活的邮箱跟当前用户帐号注册的邮箱不一致");
-        }
-        Assert.notNull(user, "激活的邮箱还没有注册过，请先注册");
-        Code code1 = codeService.validateCode(user.getId(), email, null, code);
-        Assert.notNull(code1, "激活链接失效或者激活码错误");
-        // 将code的状态置为已用
-        code1.setUsed(true);
-        codeService.update(code1);
-        // 修改当前用户的状态
-        user.setActive(true);
-        userService.update(user);
-        return redirect("/?active=true");
-    }
+//    @GetMapping("/active")
+//    public String active(String email, String code) {
+//        Assert.notNull(email, "激活邮箱不能为空");
+//        Assert.notNull(code, "激活码不能为空");
+//        User user = getUser();
+//        if (user == null) {
+//            user = userService.selectByEmail(email);
+//        } else {
+//            Assert.isTrue(email.equals(user.getEmail()), "激活的邮箱跟当前用户帐号注册的邮箱不一致");
+//        }
+//        Assert.notNull(user, "激活的邮箱还没有注册过，请先注册");
+////        Code code1 = codeService.validateCode(user.getId(), email, null, code);
+//        Assert.notNull(code1, "激活链接失效或者激活码错误");
+//        // 将code的状态置为已用
+//        code1.setUsed(true);
+//        codeService.update(code1);
+//        // 修改当前用户的状态
+//        user.setActive(true);
+//        userService.update(user);
+//        return redirect("/?active=true");
+//    }
 }

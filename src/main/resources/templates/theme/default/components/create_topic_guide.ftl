@@ -1,8 +1,6 @@
 <div class="card">
-    <div class="card-header">发帖提示</div>
+    <div class="card-header">Create topic guide</div>
     <div class="card-body">
-        <p>请在标题中描述内容要点。如果一件事情在标题的长度内就已经可以说清楚，那就没有必要写正文了。</p>
-        <p>可以在正文中为你要发布的主题添加更多细节。编辑器支持 Markdown 文本标记语法。</p>
-        <!-- <p>在最后，请为你的话题选择一个或多个标签。恰当的标签会让你发布的信息更加有用。</p> -->
+        <p>Describe the main points in the title. If one thing is already clear within the length of the title, there is no need to write the body.</p>
     </div>
 </div>

@@ -118,7 +118,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">修改密码</div>
+                <div class="card-header">Change Password</div>
                 <div class="card-body">
                     <form onsubmit="return;" class="form-horizontal">
                         <div class="form-group row">

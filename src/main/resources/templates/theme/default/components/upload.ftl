@@ -69,7 +69,7 @@
         xhr.onload = function () {
             var data = xhr.response;
             if (data.errno !== 0) {
-                suc("上传成功");
+                suc("SUCCESS");
             } else {
                 var error = "";
                 for (var k = 0; k < data.errors.length; k++) {
@@ -98,7 +98,7 @@
         xhr.upload.onprogress = function (event) {
             if (event.lengthComputable) {
                 var percent = event.loaded / event.total * 100;
-                uploadProgress.text("正在上传(" + percent.toFixed(2) + "%)...");
+                uploadProgress.text("Uploading(" + percent.toFixed(2) + "%)...");
                 if (percent === 100) {
                     $(".upload-progress-div").addClass("d-none");
                     $(".upload-progress").text("");

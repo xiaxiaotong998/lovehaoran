@@ -77,7 +77,7 @@ public class OAuthController extends BaseController {
                 username = username + githubId;
             }
             // 先创建user，然后再创建oauthUser
-            user = userService.addUser(username, null, avatarUrl, email, bio, blog, StringUtils.isEmpty(email));
+            user = userService.addUser(username, null, avatarUrl, email, bio, blog);
             oAuthUserService.addOAuthUser(Integer.parseInt(githubId), type.toUpperCase(), authUser.getUsername(), accessToken, bio, email, user.getId
                     (), null, null, null);
         } else {

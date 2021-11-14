@@ -1,10 +1,10 @@
 <#macro topic_comments topicId>
     <@tag_topic_comments topicId=topicId>
         <#if comments?size == 0>
-            <div class="nocomment-tip">目前还没有评论</div>
+            <div class="nocomment-tip">No comments</div>
         <#else>
             <div class="card comments">
-                <div class="card-header">共 ${comments?size} 条评论</div>
+                <div class="card-header">total ${comments?size} comments</div>
                 <div class="card-body">
                     <#list comments as comment>
                         <div class="media" id="comment${comment.id}"
@@ -16,9 +16,9 @@
                                             <img src="${comment.avatar!}" class="avatar avatar-sm" alt=""/>
                                         </a>
                                         <a href="/user/${comment.username!}">${comment.username!} </a>
-                                        <#if topicUser?? && topicUser.id == comment.userId>
-                                            <span class="text-success">[楼主]</span>
-                                        </#if>
+<#--                                        <#if topicUser?? && topicUser.id == comment.userId>-->
+<#--                                            <span class="text-success">[楼主]</span>-->
+<#--                                        </#if>-->
                                         ${model.formatDate(comment.inTime)}
                                     </div>
                                     <div>
@@ -64,11 +64,11 @@
                                     if (data.code === 200) {
                                         var voteIcon = $("#vote_icon_" + id);
                                         if (voteIcon.hasClass("fa-thumbs-up")) {
-                                            suc("取消点赞成功");
+                                            // suc("取消点赞成功");
                                             voteIcon.removeClass("fa-thumbs-up");
                                             voteIcon.addClass("fa-thumbs-o-up");
                                         } else {
-                                            suc("点赞成功");
+                                            // suc("点赞成功");
                                             voteIcon.addClass("fa-thumbs-up");
                                             voteIcon.removeClass("fa-thumbs-o-up");
                                         }

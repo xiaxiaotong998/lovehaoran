@@ -17,10 +17,10 @@ public interface ICodeService {
     Code createCode(Integer userId, String email, String mobile);
 
     // 验证邮箱验证码
-    Code validateCode(Integer userId, String email, String mobile, String _code);
-
-    // 发送邮件
-    boolean sendEmail(Integer userId, String email, String title, String content);
+//    Code validateCode(Integer userId, String email, String mobile, String _code);
+//
+//    // 发送邮件
+//    boolean sendEmail(Integer userId, String email, String title, String content);
 
     // 发送短信
     boolean sendSms(String mobile);

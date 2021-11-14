@@ -23,22 +23,22 @@
                                 <span id="vote_topic_count_${topic.id}">${model.getUpIds(topic.upIds)?size}</span>
                                 <span>•</span>
                                 <#if topic.top == true>
-                                    <span class="badge badge-info">置顶</span>
+                                    <span class="badge badge-info">Top</span>
                                     <span>•</span>
                                 <#elseif topic.good == true>
-                                    <span class="badge badge-info">精华</span>
+                                    <span class="badge badge-info">Prime</span>
                                     <span>•</span>
                                 </#if>
                                 <span><a href="/user/${topicUser.username!}">${topicUser.username!}</a></span>
                                 <span>•</span>
                                 <span>${model.formatDate(topic.inTime)}</span>
                                 <span>•</span>
-                                <span>${topic.view!1}次点击</span>
+                                <span>${topic.view!1} click</span>
                                 <#if _user?? && topic.userId == _user.id>
                                     <span>•</span>
-                                    <span><a href="/topic/edit/${topic.id}">编辑</a></span>
+                                    <span><a href="/topic/edit/${topic.id}"> edit</a></span>
                                     <span>•</span>
-                                    <span><a href="javascript:;" id="deleteTopic">删除</a></span>
+                                    <span><a href="javascript:;" id="deleteTopic"> delete</a></span>
                                 </#if>
                             </p>
                         </div>

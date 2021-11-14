@@ -103,7 +103,7 @@ public class IndexApiController extends BaseApiController {
         ApiAssert.isNull(user, "用户名已存在");
         User emailUser = userService.selectByEmail(email);
         ApiAssert.isNull(emailUser, "这个邮箱已经被注册过了，请更换一个邮箱");
-        user = userService.addUser(username, password, null, email, null, null, true);
+        user = userService.addUser(username, password, null, email, null, null);
         return this.doUserStorage(session, user);
     }
 
@@ -135,8 +135,8 @@ public class IndexApiController extends BaseApiController {
         ApiAssert.notEmpty(mobile, "请输入手机号");
         ApiAssert.isTrue(StringUtil.check(mobile, StringUtil.MOBILEREGEX), "请输入正确的手机号");
         ApiAssert.notEmpty(code, "请输入手机验证码");
-        Code validateCode = codeService.validateCode(null, null, mobile, code);
-        ApiAssert.notTrue(validateCode == null, "手机验证码错误");
+//        Code validateCode = codeService.validateCode(null, null, mobile, code);
+//        ApiAssert.notTrue(validateCode == null, "手机验证码错误");
         User user = userService.addUserWithMobile(mobile);
         return doUserStorage(session, user);
     }
@@ -181,7 +181,7 @@ public class IndexApiController extends BaseApiController {
     @ResponseBody
     public Result upload(@RequestParam("file") MultipartFile[] files, String type, HttpSession session) {
         User user = getApiUser();
-        ApiAssert.isTrue(user.getActive(), "你的帐号还没有激活，请去个人设置页面激活帐号");
+//        ApiAssert.isTrue(user.getActive(), "你的帐号还没有激活，请去个人设置页面激活帐号");
         ApiAssert.notEmpty(type, "上传文件类型不能为空");
         Map<String, Object> resultMap = new HashMap<>();
         List<String> urls = new ArrayList<>();

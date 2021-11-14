@@ -4,7 +4,7 @@
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
-                    新消息
+                    News
                     <a id="markRead" href="javascript:markRead()" class="pull-right" style="display: none">标记已读</a>
                 </div>
                 <div class="card-body">
