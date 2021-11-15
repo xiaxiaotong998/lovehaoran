@@ -1,5 +1,5 @@
 <#include "layout/layout.ftl"/>
-<@html page_title="首页" page_tab="index">
+<@html page_title="Home Page" page_tab="index">
     <#if active?? && active>
         <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
@@ -13,7 +13,6 @@
                 <div class="card-header">
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link <#if tab=="all">active</#if>" href="/?tab=all">ALL</a></li>
-                        <li class="nav-item"><a class="nav-link <#if tab=="good">active</#if>" href="/?tab=good">GOOD</a></li>
                         <li class="nav-item"><a class="nav-link <#if tab=="hot">active</#if>" href="/?tab=hot">HOT</a></li>
                         <li class="nav-item"><a class="nav-link <#if tab=="newest">active</#if>" href="/?tab=newest">NEW</a></li>
                     </ul>
@@ -32,8 +31,6 @@
         <div class="col-md-3 d-none d-md-block">
             <#if _user??>
                 <#include "components/user_info.ftl"/>
-            <#else>
-                <#include "components/welcome.ftl"/>
             </#if>
             <#include "components/score.ftl"/>
             <@score limit=10/>

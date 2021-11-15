@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript:if(confirm('确定要登出吗？登出了就没办法发帖回帖了哦!'))window.location.href='/logout'"
+                        <a href="javascript:if(confirm('Are you sure?'))window.location.href='/logout'"
                            class="nav-link">
                             <i class="fa fa-sign-out"></i> ${i18n.getMessage("logout")}
                         </a>

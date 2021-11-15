@@ -9,20 +9,20 @@
                     <form action="" onsubmit="return;" id="form">
                         <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" id="username" name="username" class="form-control" placeholder="用户名"/>
+                            <input type="text" id="username" name="username" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="密码"/>
+                            <input type="password" id="password" name="password" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="邮箱"/>
+                            <input type="email" id="email" name="email" class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="captcha">Captcha</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="验证码"/>
+                                <input type="text" class="form-control" id="captcha" name="captcha"/>
                                 <span class="input-group-append">
                                     <img style="border: 1px solid #ccc;" src="" class="captcha" id="changeCaptcha"/>
                                 </span>
@@ -80,19 +80,19 @@
                 var email = $("#email").val();
                 var captcha = $("#captcha").val();
                 if (!username) {
-                    err("请输入用户名");
+                    err("Please enter the username");
                     return;
                 }
                 if (!password) {
-                    err("请输入密码");
+                    err("Please enter the password");
                     return;
                 }
                 if (!email) {
-                    err("请输入邮箱");
+                    err("Please enter the email");
                     return;
                 }
                 if (!captcha) {
-                    err("请输入验证码");
+                    err("please entre the captcha");
                     return;
                 }
                 req("post", "/api/register", {

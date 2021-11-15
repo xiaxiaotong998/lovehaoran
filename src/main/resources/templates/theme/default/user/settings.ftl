@@ -74,25 +74,25 @@
                 <div class="card-body">
                     <form onsubmit="return;" class="form-horizontal">
                         <div class="form-group row">
-                            <label for="email" class="col-sm-2 control-label">邮箱</label>
+                            <label for="email" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10">
                                 <div class="input-group">
-                                    <input type="email" name="email" id="email" class="form-control" value="${user.email!}" placeholder="邮箱"/>
+                                    <input type="email" name="email" id="email" class="form-control" value="${user.email!}"/>
                                     <span class="input-group-append">
-                                        <button type="button" id="sendEmailCode" class="btn btn-info" autocomplete="off" data-loading-text="发送中...">发送验证码</button>
+                                        <button type="button" id="sendEmailCode" class="btn btn-info" autocomplete="off" data-loading-text="Sending...">Send</button>
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="code" class="col-sm-2 control-label">验证码</label>
+                            <label for="code" class="col-sm-2 control-label"></label>
                             <div class="col-sm-10">
-                                <input type="text" name="code" id="code" class="form-control" placeholder="验证码"/>
+                                <input type="text" name="code" id="code" class="form-control"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <button type="button" id="settings_email_btn" class="btn btn-info">更改邮箱</button>
+                                <button type="button" id="settings_email_btn" class="btn btn-info">Change email</button>
                             </div>
                         </div>
                     </form>
@@ -122,20 +122,20 @@
                 <div class="card-body">
                     <form onsubmit="return;" class="form-horizontal">
                         <div class="form-group row">
-                            <label for="oldPassword" class="col-sm-2 control-label">旧密码</label>
+                            <label for="oldPassword" class="col-sm-2 control-label">Old password</label>
                             <div class="col-sm-10">
                                 <input type="password" name="oldPassword" id="oldPassword" class="form-control" placeholder="旧密码"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="newPassword" class="col-sm-2 control-label">新密码</label>
+                            <label for="newPassword" class="col-sm-2 control-label">New password</label>
                             <div class="col-sm-10">
                                 <input type="password" name="newPassword" id="newPassword" class="form-control" placeholder="新密码"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="offset-sm-2 col-sm-10">
-                                <button type="button" id="settings_pwd_btn" class="btn btn-info">更改密码</button>
+                                <button type="button" id="settings_pwd_btn" class="btn btn-info">Change password</button>
                             </div>
                         </div>
                     </form>

@@ -3,11 +3,11 @@
     <div class="row">
         <div class="col-md-9">
             <div class="card">
-                <div class="card-header">${username}评论的话题</div>
+                <div class="card-header">Questions with ${username}'s comments</div>
                 <div class="card-body">
                     <@tag_user_collects pageNo=pageNo pageSize=site.page_size username=username>
                         <#if collects.total == 0>
-                            暂无评论
+                            No comments
                         <#else>
                             <#include "../components/topics.ftl"/>
                             <@topics page=collects/>

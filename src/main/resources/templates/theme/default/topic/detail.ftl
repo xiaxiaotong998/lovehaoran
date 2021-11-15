@@ -62,13 +62,13 @@
                 </div>
                 <#if _user??>
                     <div class="card-footer">
-                        <a href="javascript:window.open('http://service.weibo.com/share/share.php?url=${site.base_url!}/topic/${topic.id}?r=${_user.username!}&title=${topic.title!?html}', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');">分享微博</a>&nbsp;
+                        <a href="javascript:window.open('http://service.weibo.com/share/share.php?url=${site.base_url!}/topic/${topic.id}?r=${_user.username!}&title=${topic.title!?html}', '_blank', 'width=550,height=370'); recordOutboundLink(this, 'Share', 'weibo.com');">share</a>&nbsp;
                         <#if collect??>
-                            <a href="javascript:;" class="collectTopic">取消收藏</a>
+                            <a href="javascript:;" class="collectTopic">Cancel</a>
                         <#else>
-                            <a href="javascript:;" class="collectTopic">加入收藏</a>
+                            <a href="javascript:;" class="collectTopic">Add in collection</a>
                         </#if>
-                        <span class="pull-right"><span id="collectCount">${collects?size}</span>个收藏</span>
+                        <span class="pull-right"><span id="collectCount">${collects?size}</span> collections</span>
                     </div>
                 </#if>
             </div>
@@ -80,13 +80,13 @@
             <#if _user??>
                 <div class="card">
                     <div class="card-header">
-                        添加一条新评论
+                        Add a new comment
                         <span class="pull-right">
                             <#if site?? && site.content_style?? && site.content_style == "MD">
-                                <a href="javascript:uploadFile('topic');">上传图片</a>&nbsp;|
-                                <a href="javascript:uploadFile('video');">上传视频</a>&nbsp;|
+                                <a href="javascript:uploadFile('topic');">Upload picture</a>&nbsp;|
+                                <a href="javascript:uploadFile('video');">Upload video</a>&nbsp;|
                             </#if>
-                            <a href="javascript:;" id="goTop">回到顶部</a>
+                            <a href="javascript:;" id="goTop">Go top</a>
                         </span>
                     </div>
                     <input type="hidden" name="commentId" id="commentId" value=""/>
@@ -94,7 +94,7 @@
                     <@editor _type="topic" style="${site.content_style!'MD'}"/>
                     <div class="card-body">
                         <button id="comment_btn" class="btn btn-sm btn-info">
-                            <span class="glyphicon glyphicon-send"></span> 评论
+                            <span class="glyphicon glyphicon-send"></span> Comment
                         </button>
                     </div>
                 </div>
@@ -115,11 +115,11 @@
             <#else>
                 <div class="card">
                     <div class="card-header">
-                        添加一条新评论
+                        Add a new comment
                     </div>
                     <div class="card-body text-center">
                         <br>
-                        登录后可以发表评论 <a href="/login" style="text-decoration: underline;">去登录</a>
+                        You can add a comment after login <a href="/login" style="text-decoration: underline;">login</a>
                         <br>
                         <br>
                     </div>
@@ -141,7 +141,7 @@
             $("#comment_btn").click(function () {
                 var content = window.editor ? window.editor.getDoc().getValue() : window._E.txt.html();
                 if (!content) {
-                    err("请输入评论内容");
+                    err("Please add your comment");
                     return;
                 }
                 var _this = this;
@@ -152,7 +152,7 @@
                     commentId: $("#commentId").val(),
                 }, "${_user.token!}", function (data) {
                     if (data.code === 200) {
-                        suc("评论成功");
+                        suc("SUCCESS");
                         setTimeout(function () {
                             window.location.reload();
                         }, 700);
@@ -191,10 +191,10 @@
             });
             // 删除话题
             $("#deleteTopic").click(function () {
-                if (confirm("确定要删除吗？这会清空跟这个话题所有相关的数据，再考虑考虑呗！！")) {
+                if (confirm("Are you sure?")) {
                     req("delete", "/api/topic/${topic.id}", "${_user.token!}", function (data) {
                         if (data.code === 200) {
-                            suc("删除成功");
+                            suc("SUCCESS");
                             setTimeout(function () {
                                 window.location.href = "/";
                             }, 700);
@@ -212,11 +212,11 @@
                 if (data.code === 200) {
                     var voteTopicIcon = $("#vote_topic_icon_" + id);
                     if (voteTopicIcon.hasClass("fa-thumbs-up")) {
-                        suc("取消点赞成功");
+                        suc("SUCCESS");
                         voteTopicIcon.removeClass("fa-thumbs-up");
                         voteTopicIcon.addClass("fa-thumbs-o-up");
                     } else {
-                        suc("点赞成功");
+                        suc("SUCCESS");
                         voteTopicIcon.addClass("fa-thumbs-up");
                         voteTopicIcon.removeClass("fa-thumbs-o-up");
                     }
@@ -229,10 +229,10 @@
 
         // 删除评论
         function deleteComment(id) {
-            if (confirm("确定要删除这个评论吗？删了就没有了哦！")) {
+            if (confirm("Are you sure?")) {
                 req("delete", "/api/comment/" + id, "${_user.token!}", function (data) {
                     if (data.code === 200) {
-                        suc("删除成功");
+                        suc("SUCCESS");
                         setTimeout(function () {
                             window.location.reload();
                         }, 700);

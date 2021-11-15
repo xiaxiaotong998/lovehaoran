@@ -1,5 +1,5 @@
 <#include "layout/layout.ftl"/>
-<@html page_title="首页" page_tab="index">
+<@html page_title="Home page" page_tab="index">
     <div class="row">
         <div class="col-md-9">
             <div class="card">

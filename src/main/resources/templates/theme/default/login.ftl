@@ -9,16 +9,16 @@
                     <form action="" onsubmit="return;">
                         <div class="form-group">
                             <label for="username">USERNAME</label>
-                            <input type="text" id="username" name="username" class="form-control" placeholder="用户名"/>
+                            <input type="text" id="username" name="username" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="password">PASSWORD</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="密码"/>
+                            <input type="password" id="password" name="password" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="captcha">CAPTCHA</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="验证码"/>
+                                <input type="text" class="form-control" id="captcha" name="captcha" />
                                 <span class="input-group-append">
                                     <img style="border: 1px solid #ccc;" src="" class="captcha" id="changeCaptcha"/>
                                 </span>
@@ -30,7 +30,7 @@
                         <div class="form-group">
                             <#--                            <a href="javascript:;" id="forget_password_href" class="text-primary">${i18n.getMessage("forget_password")}</a>-->
                             <#--                            |-->
-                            没有社区账号？<a href="/register" class="text-primary">${i18n.getMessage("register")}</a>
+                           Don't have an account? <a href="/register" class="text-primary">${i18n.getMessage("register")}</a>
                         </div>
                     </form>
                     <@tag_social_list>
